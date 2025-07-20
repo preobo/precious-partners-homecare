@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us | Precious Partner's Homecare</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="contact-page">
+
+    <!-- 🚩 Navbar -->
+    <header class="header">
+        <img class="logo" src="new-logo.png" alt="Precious Partner's Homecare Logo" />
+        <nav>
+            <ul class="nav__links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#Services">Care Services</a></li>
+                <li><a href="index.html#careers">Careers</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="contact.html">
+            <button>Contact</button>
+        </a>
+    </header>
+
+    <!-- 🚩 Centering wrapper for contact form -->
+    <main class="contact-wrapper">
+        <div class="container-contact">
+            <div class="content">
+                <div class="left-side">
+                    <div class="address details">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="topic">Address</div>
+                        <div class="text-one">2398 Rockford Rd</div>
+                        <div class="text-two">New Hope, Minnesota</div>
+                    </div>
+                    <div class="phone details">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="topic">Phone</div>
+                        <div class="text-one">+763 321 5852</div>
+                        <div class="text-two">+763 447 5873</div>
+                    </div>
+                    <div class="email details">
+                        <i class="fas fa-envelope"></i>
+                        <div class="topic">Email</div>
+                        <div class="text-one">preciousobonyo@gmail.com</div>
+                        <div class="text-two">janetobonyo@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="right-side">
+                    <div class="topic-text">Contact us</div>
+                    <p>
+                        If you have questions about our services or need assistance, please send us a message here. <br>
+                        We’re happy to help and look forward to connecting with you.
+                    </p>
+                    <form id="contact-form">
+                        <div class="input-box">
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <label for="service">Please select one option:</label>
+                        <select name="services" id="services">
+                            <option value="select">Select</option>
+                            <option value="service inquiry">Service Inquiry</option>
+                            <option value="employment">Employment</option>
+                            <option value="general questions">General questions</option>
+                        </select>
+                        <div class="input-box message-box">
+                            <textarea placeholder="Enter your message" id="message" name="message" required></textarea>
+                        </div>
+                        <div class="button">
+                            <input type="button" value="Send now">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+         <script>
+            (function(){
+            emailjs.init("rNqKELznGJZf01BUG");
+            })();
+            
+            document.getElementById("contact-form").addEventListener("submit", function(event){
+                event.preventDefault();
+            
+                emailjs.sendForm('service_fna87be', 'template_rwvgh3e', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                    document.getElementById("contact-form").reset();
+                }, function(error) {
+                    alert('Failed to send message: ' + JSON.stringify(error));
+                });
+            });
+         </script>
+      
+</body>
+</html>
