@@ -10,3 +10,10 @@ const navObserver= new IntersectionObserver((entries) => {
 
 navObserver.observe(scrollWatcher)
 
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.querySelector('.nav__links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});

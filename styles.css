@@ -52,6 +52,23 @@ li, a, button{
     padding: 7px 20px;
 }
 
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+    margin-left: auto;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #edf0f1;
+    margin: 4px 0;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
 
 .nav__links {
     display:flex;
@@ -433,7 +450,7 @@ html{
     margin-top:12px;
 }
 .about-hero{
-    min-height: 50vh;
+    min-height: 40vh;
     width: 100%;
     background-image: linear-gradient(rgba(42, 6, 92, 0.827), rgba(48, 48, 48, 0.5)), url("main page.jpg");
     background-position: center;
@@ -485,13 +502,22 @@ html{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 10vh;
     width: 100%;
     padding: 20px;
 }
 
+.about-container h2{
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-family: "Lato", sans-serif;
+    color: #351c7a;
+}
+
 .about-container p{
     font-size: 18px;
-    color: #333;
+    color: #000000;
     text-align: center;
     max-width: 800px;
     margin-bottom: 20px;
@@ -505,43 +531,47 @@ html{
 }
 
 .values-container{
-    height: 50vh;
+    min-height: 40vh;
     width: 100%;
     margin-bottom: 20px;
     padding: 20px;
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #360b60;
 }
 
 .values-container h2{
     font-size: 36px;
-    padding: 20px;
-    margin-top: px;
+    margin-top: 20px;
     margin-bottom: 15px;
     font-weight: 600;
     font-family: "Lato", sans-serif;
     color: white;
+    text-align: center;
 }
 
 .values-section{
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    background-color: #592093;
+    background-color: #360b60;
 }
 
 .value-item{
+    height : 200px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #4b1f8c;
+    border-top: 1px solid rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    margin-bottom: 15px;
-    color: white;
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    gap: 10px;
+    margin: 0 20px;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 .value-item p{
@@ -644,6 +674,24 @@ html{
     font-size: 16px;
     color: #666;
 }
+@media (max-width: 768px){
+    .hamburger {
+        display: flex;
+    }
+    .nav__links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: rgba(112, 15, 153, 0.762);
+        width: 100%;
+        padding: 20px;
+    }
+    .nav__links.active{
+        display: flex;
+    }
+}
 @media (max-width: 1200px){
     .header{
         padding: 0px 5%;
@@ -695,11 +743,36 @@ html{
     .about-content{
         width: 90%;
     }
-    .value-container{
+    .about-container h2{
+        font-size: 28px;
+    }
+    .about-container p{
+        font-size: 16px;
+    }
+    .values-container{
         width: 100%;
         margin-bottom: 20px;
     }
     .value-section{
+        flex-direction: column;
+        align-items: center;
+    }
+    .values-section h2{
+        font-size: 28px;
+        text-align: center;
+    }
+    .value-item{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .value-item p{
+        font-size: 14px;
+    }
+    .team-section{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .team-members{
         flex-direction: column;
         align-items: center;
     }
@@ -710,4 +783,12 @@ html{
         width: 100%;
         margin-bottom: 20px;
     }
+    .team-member img{
+        width: 150px;
+        height: 150px;
+    }
+    .team-member h3{
+        font-size: 18px;   
+    }    
+     
 }
